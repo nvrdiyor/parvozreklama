@@ -18,7 +18,7 @@ export default function Header() {
         <a href="#" aria-label="Bosh sahifa" className="shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/parvozlogo-sm.png"
+            src="/parvozlogo-navy.png"
             alt="Parvoz Reklama logotipi"
             width={800}
             height={271}

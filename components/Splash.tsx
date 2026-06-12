@@ -27,9 +27,9 @@ export default function Splash() {
   return (
     <div
       aria-hidden="true"
-      className="splash fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden bg-ink"
+      className="splash fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden bg-white"
     >
-      <div className="splash-glow absolute h-[26rem] w-[26rem] rounded-full bg-brand/25 blur-[110px]" />
+      <div className="splash-glow absolute h-[26rem] w-[26rem] rounded-full bg-brand/15 blur-[110px]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/parvozlogoforwebsite.png"
@@ -42,7 +42,7 @@ export default function Splash() {
         <p className="text-sm font-extrabold italic tracking-[0.4em] text-brand">
           REKLAMA
         </p>
-        <p className="mt-1 text-4xl font-black tracking-wider text-white sm:text-5xl">
+        <p className="mt-1 text-4xl font-black tracking-wider text-navy sm:text-5xl">
           PARVOZ
         </p>
       </div>
