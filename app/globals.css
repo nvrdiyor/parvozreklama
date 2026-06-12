@@ -117,13 +117,13 @@ body {
 @keyframes eagle-fly-in {
   0% {
     opacity: 0;
-    transform: translate(-48vw, 32vh) rotate(-16deg) scale(0.5);
+    transform: translate(-45vw, 26vh) rotate(-10deg) scale(0.55);
   }
   55% {
     opacity: 1;
   }
   70% {
-    transform: translate(1.5vw, -1.5vh) rotate(4deg) scale(1.05);
+    transform: translate(1.2vw, -1.2vh) rotate(2.5deg) scale(1.04);
   }
   100% {
     opacity: 1;
