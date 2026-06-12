@@ -49,8 +49,32 @@ const INFO = [
   },
 ];
 
+type FormStatus = "idle" | "sending" | "sent" | "error";
+
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/send-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json().catch(() => ({ ok: false }));
+      if (res.ok && json.ok) {
+        setStatus("sent");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <section id="aloqa" className="bg-paper py-20 lg:py-28">
@@ -114,7 +138,7 @@ export default function Contact() {
           {/* form */}
           <Reveal delay={150}>
           <div className="h-full rounded-3xl bg-white p-8 shadow-xl shadow-black/5 sm:p-10">
-            {sent ? (
+            {status === "sent" ? (
               <div className="flex h-full flex-col items-center justify-center py-16 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand/10 text-brand">
                   <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -122,19 +146,14 @@ export default function Contact() {
                   </svg>
                 </div>
                 <h3 className="mt-5 text-2xl font-black text-ink">
-                  Rahmat! So&apos;rovingiz qabul qilindi
+                  Buyurtmangiz yuborildi!
                 </h3>
                 <p className="mt-2 text-ink/60">
                   Tez orada operatorlarimiz siz bilan bog&apos;lanadi.
                 </p>
               </div>
             ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSent(true);
-                }}
-              >
+              <form onSubmit={handleSubmit}>
                 <h3 className="text-2xl font-black text-ink">
                   Buyurtma qoldiring
                 </h3>
@@ -178,11 +197,26 @@ export default function Contact() {
                   />
                 </label>
 
+                {status === "error" && (
+                  <div
+                    role="alert"
+                    className="mt-5 rounded-xl border border-brand/30 bg-brand/5 px-4 py-3 text-sm font-semibold text-brand"
+                  >
+                    Xatolik yuz berdi — buyurtma yuborilmadi. Iltimos, qayta
+                    urinib ko&apos;ring yoki{" "}
+                    <a href="tel:+998700574000" className="underline">
+                      +998 70 057 40 00
+                    </a>{" "}
+                    raqamiga qo&apos;ng&apos;iroq qiling.
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="mt-6 w-full rounded-full bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/30 transition-all hover:bg-brand-dark hover:shadow-brand/50"
+                  disabled={status === "sending"}
+                  className="mt-6 w-full rounded-full bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/30 transition-all hover:bg-brand-dark hover:shadow-brand/50 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  So&apos;rov yuborish
+                  {status === "sending" ? "Yuborilmoqda..." : "So'rov yuborish"}
                 </button>
                 <p className="mt-3 text-center text-xs text-ink/40">
                   Ma&apos;lumotlaringiz faqat siz bilan bog&apos;lanish uchun ishlatiladi.
