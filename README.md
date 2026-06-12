@@ -29,12 +29,12 @@ Bular `components/Header.tsx`, `CtaBand.tsx`, `Contact.tsx`, `Footer.tsx` faylla
 
 ## Aloqa formasi → Telegram
 
-Forma yuborilganda buyurtma Telegram guruhiga tushadi. Ikkita bir xil endpoint bor:
+Forma yuborilganda buyurtma Telegram guruhiga tushadi.
 
-- `app/api/send-order/route.ts` — Next.js route (lokal `npm run dev` va Netlify'da ishlaydi)
-- `netlify/functions/send-order.js` — Netlify Function (`/api/send-order` yo'lida)
+- Endpoint: `app/api/send-order/route.ts` — Next.js route handler. Vercel'da bu **avtomatik Serverless Function** bo'ladi, alohida `api/` papka kerak emas.
+- Spam-himoya: honeypot maydon, telefon format tekshiruvi, IP bo'yicha rate limit (30 soniyada 1 so'rov), maydon uzunligi cheklovlari.
 
-**Environment o'zgaruvchilar** (ikkalasi ham shart):
+**Environment o'zgaruvchilar:**
 
 | Nomi | Qiymati |
 |---|---|
@@ -48,19 +48,19 @@ TELEGRAM_BOT_TOKEN=...
 TELEGRAM_CHAT_ID=...
 ```
 
-Netlify'da: **Site configuration → Environment variables** bo'limida xuddi shu ikki o'zgaruvchini qo'shing.
-
 > Muhim: bot guruhga a'zo bo'lishi kerak, aks holda Telegram "chat not found" xatosini beradi.
 
-## Netlify'ga deploy qilish
+## Vercel'ga deploy qilish
 
-1. [app.netlify.com](https://app.netlify.com) → **Add new site → Import an existing project**
-2. GitHub'ni ulang va `nvrdiyor/parvozreklama` repo'sini tanlang
-3. Build sozlamalari avtomatik aniqlanadi (`npm run build`, Next.js plugin `netlify.toml`da yozilgan)
-4. **Environment variables** bosqichida `TELEGRAM_BOT_TOKEN` va `TELEGRAM_CHAT_ID` ni kiriting
-5. **Deploy** bosing — bir-ikki daqiqada sayt `*.netlify.app` manzilida ochiladi
+1. [vercel.com](https://vercel.com) → **Add New → Project** → GitHub'ni ulang → `nvrdiyor/parvozreklama` repo'sini **Import** qiling
+2. Framework: **Next.js** (avtomatik aniqlanadi, hech narsa o'zgartirmang)
+3. **Environment Variables** bo'limini ochib qo'shing (Production + Preview uchun):
+   - `TELEGRAM_BOT_TOKEN` = bot tokeningiz
+   - `TELEGRAM_CHAT_ID` = `-5128635263`
+4. **Deploy** bosing — 1-2 daqiqada sayt `parvozreklama.vercel.app` kabi manzilda ochiladi
+5. Keyingi har bir `git push origin main` avtomatik qayta deploy qiladi
 
-Keyingi push'lar avtomatik deploy bo'ladi (CI/CD).
+Env o'zgaruvchini keyin o'zgartirsangiz: **Settings → Environment Variables** → yangilang → **Deployments → Redeploy** qiling.
 
 ## Hali qilinishi mumkin bo'lgan ishlar
 

@@ -51,8 +51,12 @@ const INFO = [
 
 type FormStatus = "idle" | "sending" | "sent" | "error";
 
+const DEFAULT_ERROR =
+  "Xatolik yuz berdi — buyurtma yuborilmadi. Iltimos, qayta urinib ko'ring.";
+
 export default function Contact() {
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [errMsg, setErrMsg] = useState(DEFAULT_ERROR);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -69,9 +73,11 @@ export default function Contact() {
       if (res.ok && json.ok) {
         setStatus("sent");
       } else {
+        setErrMsg(typeof json.error === "string" ? json.error : DEFAULT_ERROR);
         setStatus("error");
       }
     } catch {
+      setErrMsg(DEFAULT_ERROR);
       setStatus("error");
     }
   }
@@ -154,6 +160,15 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
+                {/* Honeypot: odam ko'rmaydi, botlar to'ldiradi — server bunda yubormaydi */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <h3 className="text-2xl font-black text-ink">
                   Buyurtma qoldiring
                 </h3>
@@ -202,8 +217,7 @@ export default function Contact() {
                     role="alert"
                     className="mt-5 rounded-xl border border-brand/30 bg-brand/5 px-4 py-3 text-sm font-semibold text-brand"
                   >
-                    Xatolik yuz berdi — buyurtma yuborilmadi. Iltimos, qayta
-                    urinib ko&apos;ring yoki{" "}
+                    {errMsg} Yoki{" "}
                     <a href="tel:+998700574000" className="underline">
                       +998 70 057 40 00
                     </a>{" "}
