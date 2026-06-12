@@ -23,7 +23,7 @@ export default function Footer() {
             <a href="#" aria-label="Bosh sahifa" className="inline-block">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/parvozlogo-white.png"
+                src="/parvozlogo-navy.png"
                 alt="Parvoz Reklama logotipi"
                 width={800}
                 height={271}
