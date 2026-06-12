@@ -32,12 +32,12 @@ export default function Hero() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
         {/* left: copy */}
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/80 animate-fade-up [animation-delay:1.9s]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/80 animate-fade-up [animation-delay:2.25s]">
             <span className="h-2 w-2 animate-pulse rounded-full bg-brand" />
             Reklama agentligi
           </span>
 
-          <h1 className="mt-6 text-4xl font-black leading-[1.08] sm:text-5xl lg:text-6xl animate-fade-up [animation-delay:2.02s]">
+          <h1 className="mt-6 text-4xl font-black leading-[1.08] sm:text-5xl lg:text-6xl animate-fade-up [animation-delay:2.4s]">
             Brendingiz baland{" "}
             <span className="relative inline-block text-brand">
               parvoz
@@ -60,13 +60,13 @@ export default function Hero() {
             qilsin!
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 animate-fade-up [animation-delay:2.14s]">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 animate-fade-up [animation-delay:2.5s]">
             Bannerlar, vizitkalar, bosma mahsulotlar va grafik dizayn — barchasi
             bir joyda. G&apos;oyangizni aytasiz, qolganini biz qilamiz: tez,
             sifatli va hamyonbop.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4 animate-fade-up [animation-delay:2.26s]">
+          <div className="mt-8 flex flex-wrap gap-4 animate-fade-up [animation-delay:2.6s]">
             <a
               href="#aloqa"
               className="group rounded-full bg-brand px-7 py-3.5 text-base font-bold text-white shadow-xl shadow-brand/30 transition-all hover:bg-brand-dark hover:shadow-brand/50"
@@ -84,12 +84,12 @@ export default function Hero() {
             </a>
           </div>
 
-          <dl className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 animate-fade-up [animation-delay:2.4s]">
+          <dl className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 animate-fade-up [animation-delay:2.7s]">
             {STATS.map((s) => (
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
                 <dd className="text-3xl font-black text-white">
-                  <CountUp to={s.to} suffix={s.suffix} startDelay={2450} />
+                  <CountUp to={s.to} suffix={s.suffix} startDelay={2750} />
                 </dd>
                 <dd className="mt-1 text-sm text-white/60">{s.label}</dd>
               </div>
@@ -100,7 +100,7 @@ export default function Hero() {
         {/* right: product mockups */}
         <div className="relative mx-auto hidden w-full max-w-md lg:block">
           {/* banner mockup */}
-          <div className="animate-fade-up [animation-delay:2.15s]">
+          <div className="animate-fade-up [animation-delay:2.5s]">
           <div className="animate-float-slow rotate-2 rounded-3xl bg-gradient-to-br from-brand to-brand-dark p-8 shadow-2xl shadow-brand/30">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -132,7 +132,7 @@ export default function Hero() {
           </div>
 
           {/* black business card */}
-          <div className="absolute -bottom-10 -left-16 w-60 animate-fade-up [animation-delay:2.45s]">
+          <div className="absolute -bottom-10 -left-16 w-60 animate-fade-up [animation-delay:2.8s]">
             <div className="animate-float [animation-delay:-1.5s] -rotate-6 rounded-2xl border border-white/10 bg-ink-soft p-5 shadow-2xl">
               <div className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -154,7 +154,7 @@ export default function Hero() {
           </div>
 
           {/* white business card */}
-          <div className="absolute -bottom-24 -right-4 w-60 animate-fade-up [animation-delay:2.6s]">
+          <div className="absolute -bottom-24 -right-4 w-60 animate-fade-up [animation-delay:2.95s]">
             <div className="animate-float [animation-delay:-3s] rotate-3 rounded-2xl bg-white p-5 text-ink shadow-2xl">
               <div className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -176,7 +176,7 @@ export default function Hero() {
           </div>
 
           {/* floating chip */}
-          <div className="absolute -right-6 -top-6 animate-fade-up [animation-delay:2.75s]">
+          <div className="absolute -right-6 -top-6 animate-fade-up [animation-delay:3.1s]">
             <div className="animate-float [animation-delay:-2s] rounded-full bg-white px-4 py-2 text-xs font-black text-ink shadow-xl">
               ✦ Grafik dizayn ham bizda
             </div>

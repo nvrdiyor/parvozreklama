@@ -22,11 +22,11 @@ export default function Header() {
             alt="Parvoz Reklama logotipi"
             width={800}
             height={271}
-            className="h-12 w-auto animate-logo-fly [animation-delay:1.95s]"
+            className="h-12 w-auto animate-logo-fly [animation-delay:2.25s]"
           />
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex animate-fade-up [animation-delay:2.2s]">
+        <nav className="hidden items-center gap-8 lg:flex animate-fade-up [animation-delay:2.55s]">
           {NAV.map((item) => (
             <a
               key={item.href}
@@ -38,7 +38,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex animate-fade-up [animation-delay:2.35s]">
+        <div className="hidden items-center gap-3 lg:flex animate-fade-up [animation-delay:2.7s]">
           <a
             href="tel:+998700574000"
             className="text-sm font-bold text-ink transition-colors hover:text-brand"
