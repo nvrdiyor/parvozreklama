@@ -95,6 +95,60 @@ body {
   transform: none;
 }
 
+/* --- Intro (splash) ekrani --- */
+/* Chiqish sof CSS'da: JS o'chiq bo'lsa ham parda 2s dan keyin o'zi ko'tariladi */
+.splash {
+  animation: splash-exit 0.75s cubic-bezier(0.76, 0, 0.24, 1) 2.05s forwards;
+}
+
+@keyframes splash-exit {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+
+/* Burgut chap-pastdan markazga uchib kiradi, biroz oshib o'tib qo'nadi */
+.splash-eagle {
+  animation: eagle-fly-in 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+@keyframes eagle-fly-in {
+  0% {
+    opacity: 0;
+    transform: translate(-48vw, 32vh) rotate(-16deg) scale(0.5);
+  }
+  55% {
+    opacity: 1;
+  }
+  70% {
+    transform: translate(1.5vw, -1.5vh) rotate(4deg) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+.splash-text {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both;
+}
+
+.splash-glow {
+  animation: glow-in 1.4s ease 0.4s both;
+}
+
+@keyframes glow-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
   .animate-logo-fly,
@@ -106,5 +160,8 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .splash {
+    display: none;
   }
 }
