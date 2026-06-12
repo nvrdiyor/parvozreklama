@@ -20,14 +20,18 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr_1fr_1.5fr]">
           <div>
-            <a href="#" aria-label="Bosh sahifa" className="inline-block">
+            <a
+              href="#"
+              aria-label="Bosh sahifa"
+              className="inline-block rounded-2xl bg-white px-5 py-3.5 shadow-lg"
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/parvozlogo-white.png"
+                src="/parvozlogo-navy.png"
                 alt="Parvoz Reklama logotipi"
                 width={800}
                 height={271}
-                className="h-14 w-auto"
+                className="h-12 w-auto"
               />
             </a>
             <p className="mt-5 max-w-xs leading-relaxed text-white/60">

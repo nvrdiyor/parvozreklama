@@ -18,7 +18,7 @@ export default function Marquee() {
         {[...ITEMS, ...ITEMS].map((t, i) => (
           <span
             key={i}
-            className="flex items-center gap-10 whitespace-nowrap text-base font-black uppercase tracking-[0.2em] text-white sm:text-lg"
+            className="flex items-center gap-10 whitespace-nowrap text-base font-bold uppercase tracking-[0.2em] text-white sm:text-lg"
           >
             {t}
             <svg viewBox="0 0 24 24" className="h-4 w-4 fill-white/70">
