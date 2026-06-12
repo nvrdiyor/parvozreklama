@@ -45,10 +45,10 @@ export default function Process() {
                 {i < STEPS.length - 1 && (
                   <span
                     aria-hidden="true"
-                    className="absolute left-16 top-7 hidden h-px w-[calc(100%-3rem)] bg-gradient-to-r from-brand/60 to-white/10 lg:block"
+                    className="process-line absolute left-16 top-7 hidden h-px w-[calc(100%-3rem)] bg-gradient-to-r from-brand/60 to-white/10 lg:block"
                   />
                 )}
-                <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand text-xl font-black shadow-lg shadow-brand/30">
+                <span className="step-num relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand text-xl font-black shadow-lg shadow-brand/30">
                   {step.num}
                 </span>
                 <h3 className="mt-5 text-lg font-extrabold">{step.title}</h3>

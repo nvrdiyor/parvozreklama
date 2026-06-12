@@ -95,7 +95,7 @@ export default function Services() {
             <article
               className="group h-full rounded-3xl border border-black/5 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/10"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-white [&_svg]:h-7 [&_svg]:w-7">
+              <div className="svc-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-white [&_svg]:h-7 [&_svg]:w-7">
                 {s.icon}
               </div>
               <h3 className="mt-5 text-xl font-extrabold text-ink">{s.title}</h3>

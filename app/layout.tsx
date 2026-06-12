@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Splash from "@/components/Splash";
+import ScrollProgress from "@/components/ScrollProgress";
+import CallFab from "@/components/CallFab";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -34,7 +36,9 @@ export default function RootLayout({
     <html lang="uz" className={`${montserrat.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Splash />
+        <ScrollProgress />
         {children}
+        <CallFab />
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ export default function CtaBand() {
     <section className="bg-white py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand to-brand-dark px-8 py-14 text-white shadow-2xl shadow-brand/30 sm:px-14">
+        <div className="sheen relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand to-brand-dark px-8 py-14 text-white shadow-2xl shadow-brand/30 sm:px-14">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo2-white.png"

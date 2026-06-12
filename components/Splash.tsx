@@ -15,7 +15,7 @@ export default function Splash() {
     const t = setTimeout(() => {
       setGone(true);
       document.body.style.overflow = "";
-    }, 2900);
+    }, 2550);
     return () => {
       clearTimeout(t);
       document.body.style.overflow = "";

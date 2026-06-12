@@ -88,7 +88,7 @@ export default function WhyUs() {
               <div
                 className="h-full rounded-3xl bg-paper p-7 transition-all hover:-translate-y-1 hover:bg-ink hover:text-white group"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand text-white [&_svg]:h-6 [&_svg]:w-6">
+                <div className="svc-icon flex h-12 w-12 items-center justify-center rounded-xl bg-brand text-white [&_svg]:h-6 [&_svg]:w-6">
                   {r.icon}
                 </div>
                 <h3 className="mt-4 text-lg font-extrabold">{r.title}</h3>

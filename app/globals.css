@@ -96,9 +96,9 @@ body {
 }
 
 /* --- Intro (splash) ekrani --- */
-/* Chiqish sof CSS'da: JS o'chiq bo'lsa ham parda 2s dan keyin o'zi ko'tariladi */
+/* Chiqish sof CSS'da: JS o'chiq bo'lsa ham parda o'zi ko'tariladi */
 .splash {
-  animation: splash-exit 0.75s cubic-bezier(0.76, 0, 0.24, 1) 2.05s forwards;
+  animation: splash-exit 0.75s cubic-bezier(0.76, 0, 0.24, 1) 1.7s forwards;
 }
 
 @keyframes splash-exit {
@@ -149,11 +149,157 @@ body {
   }
 }
 
+/* --- Yuguruvchi lenta (marquee) --- */
+.marquee {
+  animation: marquee 30s linear infinite;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    translate: -50% 0;
+  }
+}
+
+/* --- "parvoz" so'zi tagchizig'i chizilib chiqadi --- */
+.draw-line path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-line 0.9s cubic-bezier(0.22, 1, 0.36, 1) 2.9s forwards;
+}
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --- Hero fonidagi nur "nafas oladi", burgut suzib yuradi --- */
+.glow-breathe {
+  animation: breathe 7s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+.drift {
+  animation: drift 18s ease-in-out infinite;
+}
+@keyframes drift {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  33% {
+    translate: -16px 20px;
+    rotate: -2deg;
+  }
+  66% {
+    translate: 12px -14px;
+    rotate: 1.5deg;
+  }
+}
+
+/* --- Xizmat ikonkasi hover'da "qanot qoqadi" --- */
+.group:hover .svc-icon {
+  animation: wiggle 0.55s ease;
+}
+@keyframes wiggle {
+  0%,
+  100% {
+    rotate: 0deg;
+    scale: 1;
+  }
+  30% {
+    rotate: -10deg;
+    scale: 1.08;
+  }
+  60% {
+    rotate: 7deg;
+  }
+}
+
+/* --- Jarayon: bog'lovchi chiziq o'sib chiqadi, raqam hover'da ko'tariladi --- */
+.process-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+}
+.reveal-shown .process-line {
+  transform: scaleX(1);
+}
+
+.step-num {
+  transition: transform 0.3s ease;
+}
+li:hover .step-num {
+  transform: translateY(-4px) rotate(-3deg);
+}
+
+/* --- CTA bannerda yaltirash (sheen) --- */
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  animation: sheen 5s ease-in-out 1.5s infinite;
+}
+@keyframes sheen {
+  0% {
+    transform: translateX(-130%);
+  }
+  45%,
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+/* --- Suzuvchi qo'ng'iroq tugmasi pulsatsiyasi --- */
+.fab-ring {
+  animation: fab-pulse 2.4s ease-out infinite;
+}
+.fab-ring-2 {
+  animation-delay: 1.2s;
+}
+@keyframes fab-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
   .animate-logo-fly,
   .animate-float,
-  .animate-float-slow {
+  .animate-float-slow,
+  .marquee,
+  .glow-breathe,
+  .drift,
+  .svc-icon,
+  .sheen::after,
+  .fab-ring {
     animation: none;
   }
   .reveal {
@@ -163,5 +309,13 @@ body {
   }
   .splash {
     display: none;
+  }
+  .draw-line path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .process-line {
+    transform: scaleX(1);
+    transition: none;
   }
 }
